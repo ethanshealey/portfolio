@@ -1,0 +1,5 @@
+You have a new massage from ethanshealey.com!
+
+Sent By: {{data.name.data}}
+Email: {{data.email.data}}
+Message: {{data.message.data}}

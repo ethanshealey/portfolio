@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{{title}}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/static/css/main.css" />
+		<noscript><link rel="stylesheet" href="/static/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon"><img style="width:100%; border-radius: 50%;" src="/images/pp.jpg"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>Ethan Shealey</h1>
+								<p>College student majoring in Computer Science
+								<br>Looking to better myself everyday through education and
+								<br>hard work surrounded by passionate and dedicated people.
+								<br>Check out my <a href="http://programming.ethanshealey.com" target="_blank">Programming Blog</a>, <a href="https://www.github.com/ethanshealey" target="_blank">GitHub</a> and <a href="https://www.linkedin.com/in/ethan-shealey/" target="_blank">LinkedIn</a>
+								<br>Want to hire me? Shoot me an <a href="#contact">Email</a>!</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#work">My Work</a></li>
+								<li><a href="#contact">Contact</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Work -->
+							<article id="work">
+								<h1 class="major">My Work</h1>
+								<ul>
+									<li>
+										<b><a href="stemaccessforall.org" target="_blank">STEM Access For All</a></b><br>
+										<p>Description: Python Flask Web App</p>
+										<p style="margin-top:-30px !important;">Tools Used:</p>
+										<ul style="margin-top:-30px !important;">
+											<li>Flask</li>
+											<li>Flask Admin</li>
+											<li>Flask Login</li>
+											<li>SQL / SQLalchemy / sqlite3</li>
+											<li>Flask Mail</li>
+										</ul>
+										<span class="image main"><a href="http://www.stemaccessforall.org" target="_blank"><img src="/images/safa.png" alt="" /></span></a>
+									</li>
+									<li>
+										<b><a href="stemaccessforall.org" target="_blank">Programming Blog</a></b><br>
+										<p>Description: Python Flask Web App</p>
+										<p style="margin-top:-30px !important;">Tools Used:</p>
+										<ul style="margin-top:-30px !important;">
+											<li>Flask</li>
+											<li>Flask Admin</li>
+											<li>Flask Login</li>
+											<li>SQL / SQLalchemy / sqlite3</li>
+										</ul>
+										<span class="image main"><a href="http://programming.ethanshealey.com" target="_blank"><img src="/images/prog.png" alt="" /></span></a>
+									</li>
+								</ul>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="">
+									{{ form.hidden_tag() }}
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											{{ form.name }}
+											{% for error in form.name.errors %}
+           									 <span style="color: red;">[{{ error }}]</span>
+            								{% endfor %}
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											{{ form.email }}
+											{% for error in form.email.errors %}
+           									 <span style="color: red;">[{{ error }}]</span>
+            								{% endfor %}
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											{{ form.message(id='message', rows='4') }}
+											{% for error in form.message.errors %}
+           									 <span style="color: red;">[{{ error }}]</span>
+            								{% endfor %}
+										</div>
+									</div>
+									<ul class="actions">
+										<li>{{ form.submit(type='submit', value='Send Message', class='primary') }}</li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="https://www.github.com/ethanshealey" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/ethan-shealey/" class="icon brands fa-linkedin"><span class="label">GitHub</span></a></li>
+
+								</ul>
+							</article>
+
+						
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; ethanshealey.com</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="static/js/jquery.min.js"></script>
+			<script src="static/js/browser.min.js"></script>
+			<script src="static/js/breakpoints.min.js"></script>
+			<script src="static/js/util.js"></script>
+			<script src="static/js/main.js"></script>
+
+	</body>
+</html>
