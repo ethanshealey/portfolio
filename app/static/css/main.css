@@ -7,6 +7,10 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+html {
+	background-color: #403F3F;
+}
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -1660,3 +1664,163 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
+/* TOOLTIP */
+[tooltip] {
+	position: relative;
+  }
+  [tooltip]::before, [tooltip]::after {
+	text-transform: none;
+	line-height: 1;
+	font-size: 0.9em;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+		-ms-user-select: none;
+			user-select: none;
+	pointer-events: none;
+	position: absolute;
+	display: none;
+	opacity: 0;
+  }
+  [tooltip]::before {
+	content: "";
+	border: var(--dink) solid transparent;
+	z-index: 1001;
+  }
+  [tooltip]::after {
+	content: attr(tooltip);
+	font-family: Helvetica, sans-serif;
+	text-align: center;
+	min-width: 3em;
+	max-width: 21em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 1ch 1.5ch;
+	border-radius: 0.3em;
+	box-shadow: 0 1em 2em -0.5em var(--shadow);
+	background: var(--bg);
+	color: var(--text);
+	z-index: 1000;
+  }
+  [tooltip]:hover::before, [tooltip]:hover::after {
+	display: block;
+  }
+  
+  [tooltip]:not([flow])::before,
+  [tooltip][flow^="up"]::before {
+	bottom: 100%;
+	border-bottom-width: 0;
+	border-top-color: var(--bg);
+  }
+  [tooltip]:not([flow])::after,
+  [tooltip][flow^="up"]::after {
+	bottom: calc(100% + var(--dink));
+  }
+  [tooltip]:not([flow])::before, [tooltip]:not([flow])::after,
+  [tooltip][flow^="up"]::before,
+  [tooltip][flow^="up"]::after {
+	left: 50%;
+	-webkit-transform: translate(-50%, 0.5em);
+			transform: translate(-50%, 0.5em);
+  }
+  
+  [tooltip][flow^="down"]::before {
+	top: 100%;
+	border-top-width: 0;
+	border-bottom-color: var(--bg);
+  }
+  [tooltip][flow^="down"]::after {
+	top: calc(100% + var(--dink));
+  }
+  [tooltip][flow^="down"]::before, [tooltip][flow^="down"]::after {
+	left: 50%;
+	-webkit-transform: translate(-50%, -0.5em);
+			transform: translate(-50%, -0.5em);
+  }
+  
+  [tooltip][flow$="-left"]::after {
+	right: 50%;
+	left: auto;
+  }
+  
+  [tooltip][flow="up-left"]::after {
+	-webkit-transform: translate(1.5em, 0.5em);
+			transform: translate(1.5em, 0.5em);
+  }
+  
+  [tooltip][flow="down-left"]::after {
+	-webkit-transform: translate(1.5em, -0.5em);
+			transform: translate(1.5em, -0.5em);
+  }
+  
+  [tooltip][flow="up-right"]::after {
+	-webkit-transform: translate(-1.5em, 0.5em);
+			transform: translate(-1.5em, 0.5em);
+  }
+  
+  [tooltip][flow="down-right"]::after {
+	-webkit-transform: translate(-1.5em, -0.5em);
+			transform: translate(-1.5em, -0.5em);
+  }
+  
+  [tooltip][flow="left"]::before {
+	top: 50%;
+	border-right-width: 0;
+	border-left-color: var(--bg);
+	left: calc(0em - var(--dink));
+	-webkit-transform: translate(0.5em, -50%);
+			transform: translate(0.5em, -50%);
+  }
+  [tooltip][flow="left"]::after {
+	top: 50%;
+	right: calc(100% + var(--dink));
+	-webkit-transform: translate(0.5em, -50%);
+			transform: translate(0.5em, -50%);
+  }
+  
+  [tooltip][flow="right"]::before {
+	top: 50%;
+	border-left-width: 0;
+	border-right-color: var(--bg);
+	right: calc(0em - var(--dink));
+	-webkit-transform: translate(-0.5em, -50%);
+			transform: translate(-0.5em, -50%);
+  }
+  [tooltip][flow="right"]::after {
+	top: 50%;
+	left: calc(100% + var(--dink));
+	-webkit-transform: translate(-0.5em, -50%);
+			transform: translate(-0.5em, -50%);
+  }
+  
+  [tooltip]:not([flow]):hover::before, [tooltip]:not([flow]):hover::after,
+  [tooltip][flow^="up"]:hover::before,
+  [tooltip][flow^="up"]:hover::after,
+  [tooltip][flow^="down"]:hover::before,
+  [tooltip][flow^="down"]:hover::after {
+	-webkit-animation: tips-vert var(--ani);
+			animation: tips-vert var(--ani);
+  }
+  
+  [tooltip][flow$="-right"]:hover::after {
+	-webkit-animation: tips-diag-right var(--ani);
+			animation: tips-diag-right var(--ani);
+  }
+  
+  [tooltip][flow$="-left"]:hover::after {
+	-webkit-animation: tips-diag-left var(--ani);
+			animation: tips-diag-left var(--ani);
+  }
+  
+  [tooltip][flow="left"]:hover::before, [tooltip][flow="left"]:hover::after,
+  [tooltip][flow="right"]:hover::before,
+  [tooltip][flow="right"]:hover::after {
+	-webkit-animation: tips-horz var(--ani);
+			animation: tips-horz var(--ani);
+  }
+  
+  [tooltip=""]::after, [tooltip=""]::before {
+	display: none !important;
+  }
+  
