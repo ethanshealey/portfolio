@@ -17,7 +17,15 @@
 		<link rel="stylesheet" href="/static/css/main.css" />
 		<noscript><link rel="stylesheet" href="/static/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload" onload="toast()">
+
+		{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div id="snackbar">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+		{% endwith %}
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -30,6 +38,13 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Ethan Shealey</h1>
+								{% with messages = get_flashed_messages() %}
+								{% if messages %}
+									{% for message in messages %}
+									<p id="snackbar">{{ message }}</p>
+									{% endfor %}
+								{% endif %}
+								{% endwith %}
 								<p>College student majoring in Computer Science.
 								<br>Looking to better myself every day through education and
 								<br>hard work surrounded by passionate and dedicated people.
@@ -76,6 +91,7 @@
 			<div id="bg"></div>
 
 		<!-- Scripts -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 			<script src="static/js/jquery.min.js"></script>
 			<script src="static/js/browser.min.js"></script>
 			<script src="static/js/breakpoints.min.js"></script>
@@ -90,5 +106,12 @@
 			});
 			</script>
 
+			<script>
+			function toast() {
+				var x = document.getElementById("snackbar");
+				x.className = "show";
+				setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3500);
+			}
+			</script>
 	</body>
 </html>

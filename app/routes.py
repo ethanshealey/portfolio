@@ -11,5 +11,6 @@ def index():
         msg.body=render_template('msg.txt', data=form)
         msg.html=render_template('msg.html', data=form)
         mail.send(msg)
-        return redirect(url_for('index'))
+        flash('Your message has been sent!')
+        return redirect(url_for('index', _anchor='sent'))
     return render_template('index.html', title='Portfolio | Ethan Shealey', form=form)
